@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 
 
@@ -26,5 +28,24 @@ public class ABRTest {
 		abr.insert(10);
 		assert(abr.getFd().getNode().getKey() == 10);
 	}
+	
+	@Test
+	public void testContains(){
+		ABR abr = new ABR();
+		assertFalse(abr.contains(10));
+		abr.insert(7);
+		assert(abr.contains(7));
+		abr.insert(10);
+		assert(abr.contains(10));
+		abr.insert(5);
+		assert(abr.contains(5));
+	}
+	
+	/*@Test
+	public void testToList(){
+		ABR abr = new ABR();
+		List<Integer> l = new List<Integer>();
+		assert(abr.toList(l) );
+	}*/
 
 }
