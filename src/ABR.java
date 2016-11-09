@@ -38,7 +38,7 @@ public class ABR {
 	}
 		
 	public boolean isEmpty(){
-		return (getFg() == null && getFd() == null && getNode() == null);
+		return (getNode() == null);
 	}
 	
 	public void insert(int a){
