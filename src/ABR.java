@@ -3,16 +3,16 @@ public class ABR {
 
 	private ABR fg; //le fils gauche
 	private ABR fd; //le fils droit
-	private int key; //la clé
+	private Node noeud; //le noeud
 	
-	public void ABR(int cle, ABR gauche, ABR droit){
-		key = cle;
-		fg = gauche;
-		fd = droit;
+	public ABR(){
+		noeud = null;
+		fg = null;
+		fd = null;
 	}
 	
-	public int getKey(){
-		return key;
+	public Node getNode(){
+		return noeud;
 	}
 	
 	public ABR getFg(){
@@ -23,5 +23,21 @@ public class ABR {
 		return fd;
 	}
 	
-	public 
+	public void setNode(Node n){
+		noeud = n;
+	}
+	
+	public void setFg(ABR gauche){
+		fg = gauche;
+	}
+	
+	public void setFd(ABR droit){
+		fd = droit;
+	}
+		
+	public boolean isEmpty(){
+		return (getFg() == null && getFd() == null && getNode() == null);
+	}
+	
+	
 }
