@@ -71,4 +71,37 @@ public class ABR {
 			return(1+fg.nbElement()+fd.nbElement());
 		}
 	}
+
+	public boolean contains(int a){
+		if(!isEmpty()){
+			int cle = getNode().getKey();
+			if(a == cle){
+				return true;
+			}
+			else{
+				if(a < cle){
+					ABR fg = getFg();
+					fg.contains(a);
+				}
+				else{
+					if(cle < a){
+						ABR fd = getFd();
+						fd.contains(a);
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public void toList(java.util.List<java.lang.Integer> l){
+		if(!isEmpty()){
+				int cle = getNode().getKey();
+				l.add(cle);
+				getFg().toList(l);
+				getFd().toList(l);
+		}
+	}
 }
+
+
