@@ -50,18 +50,25 @@ public class ABR {
 			int cle = getNode().getKey();
 			ABR fg = getFg();
 			ABR fd = getFd();
-			if(fg == null && fd == null){
-				fg.setNode(n);
-			}
-			else{ 
-				if(a < cle){
+			if(a < cle){
 				fg.insert(a);
-				}
-				else{
-					fd.insert(a);;
+			}
+			else{
+				if(cle <a){
+					fd.insert(a);
 				}
 			}
 		}
 	}
-	
+
+	public int nbElement(){
+		if(isEmpty()){
+			return 0;
+		}
+		else{
+			ABR fg = getFg();
+			ABR fd = getFd();
+			return(1+fg.nbElement()+fd.nbElement());
+		}
+	}
 }
